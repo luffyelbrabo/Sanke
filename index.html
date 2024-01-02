@@ -5,11 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Snake Game</title>
 	<link rel="stylesheet" href="style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style>
+	  body, html {
+	    margin: 0;
+	    padding: 0;
+	    overflow: hidden;
+	  }
+	  #game-container {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: 100vh;
+	  }
+	  canvas {
+	    border: 1px solid black;
+	  }
+	</style>
 </head>
 <body>
 	<div id="game-container">
-		<canvas id="gc" class="game-canvas" style="width: 80%; height: 80%;"></canvas>
+		<canvas id="gc" class="game-canvas"></canvas>
 	</div>
 	<div class="keys">
 	  <a class="up arr" onclick="Snake.action('up')">
@@ -23,5 +38,12 @@
 	    <i class="chevron right"></i></a>
 	</div>
 	<script type="text/javascript" src="game.js"></script>
+	<script>
+	  const canvas = document.getElementById('gc');
+	  const ctx = canvas.getContext('2d');
+
+	  canvas.width = window.innerWidth;
+	  canvas.height = window.innerHeight;
+	</script>
 </body>
 </html>
